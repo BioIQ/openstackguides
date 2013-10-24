@@ -8,8 +8,8 @@ This guide provides a step-by-step method for building and deploying a CentOS im
 The scripts for assisting in the build can be checked out from [BlueChip's Github account](https://github.com/bluechiptek/):
     
     mkdir ~/bluechip; cd ~/bluechip
-    git clone https://ababab
-    cd bluecent
+    git clone https://github.com/bluechiptek/openstackguides.git
+    cd openstackguides/centos
 
 *Note: While the scripts are not necessary to complete the build, the steps below assume the above directory structure exists.*
 
@@ -32,7 +32,7 @@ Several bash scripts have been written to speed up the install process.  The man
     
 Start the automated setup of a CentOS install in VirtualBox by doing the following:
 
-    cd ~/bluechip/bluecent
+    cd ~/bluechip/openstackguides/centos
     ./install_centos.sh
 
 Proceed with the install by skipping over the 'Option #2' section and going straight into 'Start the Install' section below.
@@ -43,7 +43,7 @@ The following contains detailed commands for building a new VirtualBox instance 
 ##### Download the Net Installer
 Start by downloading the network based installer from the Stanford mirror:
 
-    cd ~/bluechip/bluecent
+    cd ~/bluechip/openstackguides/centos
     curl http://mirror.stanford.edu/yum/pub/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso > centos_netinstall.iso
 
 ##### Create the VM Using VBoxManage
@@ -83,13 +83,15 @@ To start the install, open VirtualBox and click on the 'BlueCentOS' instance and
 
 You'll be prompted for a URL to use for the install.  Here's a screenshot:
 
-![ScreenShot](http://raw.github.com/bluechiptek/openstackguides/master/centos/url.png) Under the URL for the CentOS installation, enter the following (sorry, no cut/paste with the VirtualBox console):
+![ScreenShot](http://raw.github.com/bluechiptek/openstackguides/master/centos/url.png) 
+
+Under the URL for the CentOS installation, enter the following (sorry, no cut/paste with the VirtualBox console):
 
     http://mirror.stanford.edu/centos/6/os/x86_64
 
 Hit 'tab' twice and hit enter on 'OK'.
 
-Now run through the following steps to configure the rest of the CentOS install,  all in the graphical interface:
+Finally, run through the following steps to configure the rest of the CentOS install.  CentOS will shift to a GUI install, so you can use your mose.
 
  * Click the 'next' button on the welcome screen.
  * Click the 'next' button on the device selection screen.
@@ -108,7 +110,9 @@ To boot into the new system, the DVD drive needs to be unmounted.  Enter the fol
 
     VBoxManage storageattach "BlueCentOS" --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium none
 
-The instance is now ready to boot for the first time.  Go into VirtualBox and click on the new instance and click start at the top of the VirtualBox Manager window.
+The instance is now ready to boot for the first time.  
+
+Go into VirtualBox and click on the new instance and click start at the top of the VirtualBox Manager window.
 
 #### Install a Few Key Packages
 The instance should be running and booted in a minute or so.  A forwarding rule has been built to allow you to ssh into the instance:

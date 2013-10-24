@@ -91,7 +91,7 @@ Under the URL for the CentOS installation, enter the following (sorry, no cut/pa
 
 Hit 'tab' twice and hit enter on 'OK'.
 
-Finally, run through the following steps to configure the rest of the CentOS install.  CentOS will shift to a GUI install, so you can use your mose.
+Finally, run through the following steps to configure the rest of the CentOS install.  CentOS will shift to a GUI install, so you can use your mouse.
 
  * Click the 'next' button on the welcome screen.
  * Click the 'next' button on the device selection screen.
@@ -119,17 +119,24 @@ The instance should be running and booted in a minute or so.  A forwarding rule 
 
     ssh root@localhost -p 2222
     
-Remember, your password for root is 'f00bar'.  Once you are logged in, install git and checkout the scripts again:
+Remember, your password for root is 'f00bar'.  Once you are logged in, install *git*:
 
     yum -y install git
- 
- 
- * rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
- * yum install cloud-init
- * yum install rsync
- * adduser ec2-user
- * mkdir /home/ec2-user/.ssh/
- * chown -R ec2-user.ec2-user .ssh
+
+*Note: This installs an older version of git.  Follow the instructions [here](https://gist.github.com/matthewriley/4694850) to update to a newer version of git.*
+
+Checkout the *openstackguides* repository again:
+
+    mkdir ~/bluechip; cd ~/bluechip
+    git clone https://github.com/bluechiptek/openstackguides.git
+    cd openstackguides/centos
+
+Now run the *build_cloud_image.sh* script:
+
+    ./build_cloud_image.sh
+
+
+
  * add ec2-user to wheel: vi /etc/group
  * remove tty requirement from vi /etc/sudoers
  * NOPASSWD in sudoers (uncomment wheel example)

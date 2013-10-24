@@ -64,12 +64,13 @@ Next, attach the install file as a DVD:
     VBoxManage storagectl BlueCentOS --name "IDE Controller" --add ide
     VBoxManage storageattach BlueCentOS --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium centos_netinstall.iso
     
-Finally, add a few key settings:
+Finally, add a few key settings, including port forwarding for ssh:
 
-    VBoxManage modifyvm $VM --ioapic on
-    VBoxManage modifyvm $VM --boot1 dvd --boot2 disk --boot3 none --boot4 none
-    VBoxManage modifyvm $VM --memory 1024 --vram 128
-
+    VBoxManage modifyvm BlueCentOS --ioapic on
+    VBoxManage modifyvm BlueCentOS --boot1 dvd --boot2 disk --boot3 none --boot4 none
+    VBoxManage modifyvm BlueCentOS --memory 1024 --vram 128
+    VBoxManage modifyvm BlueCentOS --natpf1 "ssh,tcp,,2222,,22"
+    
 #### Start the Install
 To start the install, open VirtualBox and click on the 'BlueCentOS' instance and click on the start button at the top.  Proceed through the install using the following steps:
 
@@ -80,7 +81,9 @@ To start the install, open VirtualBox and click on the 'BlueCentOS' instance and
  * Under TCP/IP configuration, hit 'tab' (7) times to select 'OK' and hit enter.
  * Wait for the network configuration to take place.
 
-Under the URL for the CentOS installation, enter the following (sorry, no cut/paste with the VirtualBox console):
+You'll be prompted for a URL to use for the install.  Here's a screenshot:
+
+![ScreenShot](http://raw.github.com/bluechiptek/openstackguides/master/centos/url.png) Under the URL for the CentOS installation, enter the following (sorry, no cut/paste with the VirtualBox console):
 
     http://mirror.stanford.edu/centos/6/os/x86_64
 
@@ -100,13 +103,21 @@ Now run through the following steps to configure the rest of the CentOS install,
  
 The install process should commence and complete in about 5 minutes.  When the button saying 'reboot' appears, close the VM's window and select 'power off' from the close options.
 
+#### Remove the DVD and Start the Instance
+To boot into the new system, the DVD drive needs to be unmounted.  Enter the following to unmount the drive:
 
+    VBoxManage storageattach "BlueCentOS" --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium none
 
-#### Remove the DVD
+The instance is now ready to boot for the first time.  Go into VirtualBox and click on the new instance and click start at the top of the VirtualBox Manager window.
 
-TODO
+#### Install a Few Key Packages
+The instance should be running and booted in a minute or so.  A forwarding rule has been built to allow you to ssh into the instance:
 
+    ssh root@localhost -p 2222
+    
+Remember, your password for root is 'f00bar'.  Once you are logged in, install git and checkout the scripts again:
 
+    yum -y install git
  
  
  * rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm

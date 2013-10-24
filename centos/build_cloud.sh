@@ -40,3 +40,10 @@ sed -i '/^\skernel/ s/$/ console=tty0 console=ttyS0,115200n8/' /boot/grub/menu.l
 # wipe the passwords
 passwd -l root
 passwd -l ec2-user
+
+# notify we're halting
+echo "Halting instance in 5 seconds!"
+sleep 5
+
+# halt the instance
+halt

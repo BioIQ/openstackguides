@@ -2,7 +2,7 @@
 
 There are [several pre-built images for OpenStack](http://docs.openstack.org/image-guide/content/ch_obtaining_images.html), including Ubuntu, Red Hat and Fedora.  Images for CentOS and a few other Linux distros are not readily available, but they can be built from their respective installers using VirtualBox.
 
-This guide provides a step-by-step method for building and deploying a CentOS images for OpenStack.
+This guide provides a step-by-step method for building and deploying a CentOS image for OpenStack.
 
 ### Prerequisites for Building a CentOS Image
 The scripts for assisting in the build can be checked out from [BlueChip's Github account](https://github.com/bluechiptek/):

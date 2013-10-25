@@ -41,6 +41,13 @@ sed -i '/^\skernel/ s/$/ console=tty0 console=ttyS0,115200n8/' /boot/grub/menu.l
 passwd -l root
 passwd -l ec2-user
 
+# say something cute in /etc/motd
+echo "CentOS image built using BlueChipTek's OpenStack guide." >> /etc/motd
+echo "" >> /etc/motd
+echo "More guides on OpenStack are at http://openstack.bluechiptek.com/" >> /etc/motd
+echo "" >> /etc/motd
+echo "@StackGeek" >> /etc/motd
+
 # notify we're halting
 echo "Halting instance in 5 seconds!"
 sleep 5

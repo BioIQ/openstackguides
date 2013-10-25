@@ -131,25 +131,10 @@ Checkout the *openstackguides* repository again:
     git clone https://github.com/bluechiptek/openstackguides.git
     cd openstackguides/centos
 
-Now run the *build_cloud_image.sh* script:
+Now run the *build_cloud.sh* script:
 
-    ./build_cloud_image.sh
+    ./build_cloud.sh
 
-
-
- * add ec2-user to wheel: vi /etc/group
- * remove tty requirement from vi /etc/sudoers
- * NOPASSWD in sudoers (uncomment wheel example)
- * edit /etc/ssh/sshd_config and set cleartext password off
- * passwd -l root
- * passwd -l ec2-user
- * rm /etc/udev/rules.d/70-persistent-net.rules
- * vi /etc/sysconfig/network-scripts/ifcfg-eth0
-
- 
-#### edit the /boot/grub/menu.lst
-serial –unit=0 –speed=115200
-terminal –timeout=10 console serial
-
-kernel line... 
-console=tty0 console=ttyS0,115200n8 
+### Upload the Image to OpenStack
+You will need to upload the disk image to your OpenStack cluster.
+Uploading the image to an OpenStack cluster should be done with a user that has admin privledges.  Login to OpenStack and then click on the 'Admin' tab in the left pane, then     

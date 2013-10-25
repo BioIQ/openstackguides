@@ -13,11 +13,11 @@ fi
 # build the VM in VirtualBox
 VM="BlueCentOS"
 VBoxManage createvm --name $VM --ostype "RedHat_64" --register
-VBoxManage createhd --filename ~/VirtualBox\ VMs/$VM.qcow --size 8192
+VBoxManage createhd --filename ~/VirtualBox\ VMs/$VM/$VM.qcow --size 8192
 
 # add a qcow storage device
 VBoxManage storagectl $VM --name "SATA Controller" --add sata --controller IntelAHCI
-VBoxManage storageattach $VM --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium ~/VirtualBox\ VMs/$VM.qcow
+VBoxManage storageattach $VM --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium ~/VirtualBox\ VMs/$VM/$VM.qcow
 
 # add the dvd install
 VBoxManage storagectl $VM --name "IDE Controller" --add ide

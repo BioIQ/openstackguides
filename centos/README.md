@@ -22,7 +22,7 @@ Double click the package to run through the installation on your local machine a
 ### Video Guide
 It is recommended you familiarize yourself with the build process by watching the screencast below before proceeding.
 
-[![ScreenShot](https://raw.github.com/bluechiptek/openstackguides/master/centos/video.png)](http://vimeo.com/73001135)
+[![ScreenShot](https://raw.github.com/bluechiptek/openstackguides/master/centos/video.png)](http://vimeo.com/77826518)
 
 ### Installing CentOS on VirtualBox
 The process for installing CentOS requires downloading the net install ISO, mounting it to a new VM in VirtualBox, and then running through the install using the graphical interface console in VirtualBox.

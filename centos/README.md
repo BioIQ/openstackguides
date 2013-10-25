@@ -162,7 +162,7 @@ Fill out the form:
  * make the image public, if you like
  * click 'create image'
  
-The image will take a little while to upload and add to the cluster as it's about 1.2GB in size.
+The image will take a little while to upload and add to the cluster as it's about 1.3GB in size.
 
 Start up a new test instance to try out your CentOS image!
 

@@ -154,4 +154,23 @@ Here's a screenshot of the modal that should pop up:
 
 ![ScreenShot](https://raw.github.com/bluechiptek/openstackguides/master/centos/upload.png)
 
-Enter CentOs Paste in the URL you copied earlier.
+Fill out the form:
+
+ * enter 'CentOS 6.4' for the name of the image 
+ * paste in the URL you copied earlier into the image location
+ * select the *QCOW2* format
+ * make the image public, if you like
+ * click 'create image'
+ 
+The image will take a little while to upload and add to the cluster as it's about 1.2GB in size.
+
+Start up a new test instance to try out your CentOS image!
+
+
+
+
+
+
+
+
+

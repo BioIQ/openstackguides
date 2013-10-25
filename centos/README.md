@@ -136,5 +136,22 @@ Now run the *build_cloud.sh* script:
     ./build_cloud.sh
 
 ### Upload the Image to OpenStack
-You will need to upload the disk image to your OpenStack cluster.
-Uploading the image to an OpenStack cluster should be done with a user that has admin privledges.  Login to OpenStack and then click on the 'Admin' tab in the left pane, then     
+You will need to upload the disk image to your OpenStack cluster.  Start a simple web server by entering the following:
+
+    cd ~/VirtualBox\ VMs/BlueCentOS/
+    ./serve
+
+Select the line with the *BlueCentOS.qcow* file in the URL and copy it into your paste buffer.  
+
+To upload the image to OpenStack, do the following:
+
+ * login to your OpenStack cluster with a user with admin privileges
+ * click on the 'Admin' tab in the left pane
+ * click on the 'Images' link on the left under 'System Panel'
+ * click on the 'Create Image' button at the top right
+
+Here's a screenshot of the modal that should pop up:
+
+![ScreenShot](https://raw.github.com/bluechiptek/openstackguides/master/centos/upload.png)
+
+Enter CentOs Paste in the URL you copied earlier.
